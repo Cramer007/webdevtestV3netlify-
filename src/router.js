@@ -1,4 +1,4 @@
-// src/router.ts (ou .js si tu préfères)
+
 
 import { createRouter, createWebHistory } from 'vue-router'
 import SignIn from './components/SignIn.vue'
@@ -12,7 +12,19 @@ const routes = [
   { path: '/', redirect: '/signin' }
 ]
 
-export const router = createRouter({
-  history: createWebHistory(),
-  routes
+const router = createRouter ({
+ history: createWebHistory(),
+ routes
 })
+  
+router.beforeEach((to, from, next) => {
+    const isAuthenticated = !!localStorage.getItem('token')
+  
+    if (to.path === '/gallery' && !isAuthenticated) {
+      next('/signin')
+    } else {
+      next()
+    }
+})
+  
+  export { router }

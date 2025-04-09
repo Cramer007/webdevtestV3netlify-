@@ -17,6 +17,7 @@ async function onSubmit(e: Event) {
 
     // Si on a un token → redirige vers gallery
     if (response.token) {
+      localStorage.setItem('token', response.token)
       router.push('/gallery')
     } else {
       console.error("Login failed, no token received")
