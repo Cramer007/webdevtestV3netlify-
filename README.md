@@ -69,11 +69,7 @@ Créer une application web complète avec :
 
 ## ✍️ Auteur
 
-Projet réalisé par [Ton Prénom]  
+Projet réalisé par adrien gaucher
 Dans le cadre du cours de Web Développement (ESILV / Stormier)
 
----
 
-## 🖼️ Capture d’écran
-
-![Galerie d'art web app](./public/screenshot-readme.png)
