@@ -10,11 +10,5 @@ function logout() {
 </script>
 
 <template>
-  <header>
-    <nav>
-      <RouterLink to="/signin">Sign in</RouterLink>
-      <RouterLink to="/signup">Sign up</RouterLink>
-      <button @click="logout">Logout</button>
-    </nav>
-  </header>
+  <button @click="logout">Logout</button>
 </template>

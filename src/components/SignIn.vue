@@ -10,15 +10,20 @@ const router = useRouter()
 
 async function onSubmit(e: Event) {
   try {
-    const response = await postJSON("https://back-web-dev-l9r6.onrender.com/api/token", {
-      username: username.value,
-      password: password.value
+    const res = await fetch("https://back-web-dev-l9r6.onrender.com/api/token", {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        username: username.value,
+        password: password.value
+      })
     })
-    console.log("Response received from backend:", response) // 👈 Ajoute ceci
 
-    // Si on a un token → redirige vers gallery
-    if (response.token) {
-      localStorage.setItem('token', response.token)
+    const data = await res.json()
+    console.log("Response received from backend:", data)
+
+    if (data.token) {
+      localStorage.setItem('token', data.token)
       router.push('/gallery')
     } else {
       console.error("Login failed, no token received")
