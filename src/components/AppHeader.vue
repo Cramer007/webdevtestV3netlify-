@@ -4,7 +4,7 @@ import DecoButton from './DecoButton.vue'
 
 <template>
   <header>
-    <h1>Gallerie pour les artistes</h1>
+    <h1>Galerie pour les artistes</h1>
     <DecoButton />
   </header>
 </template>
