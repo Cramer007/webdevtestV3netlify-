@@ -7,7 +7,7 @@ const username = ref('')
 const password = ref('')
 
 function onSubmit(e: Event) {
-  postJSON("/api/token", {
+  postJSON("https://back-web-dev-l9r6.onrender.com/api/token", {
       username: username.value,
       password: password.value
   })

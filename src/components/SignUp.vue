@@ -8,7 +8,7 @@ const email = ref('')
 const password = ref('')
 
 function onSubmit (e: Event) {
-  postJSON("/api/users", {
+  postJSON("https://back-web-dev-l9r6.onrender.com/api/users", {
       username: username.value,
       password: password.value,
       email: email.value
