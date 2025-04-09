@@ -1,22 +1,34 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import BasicInput from './BasicInput.vue';
-import { postJSON } from '../api-client/api-client';
+import { useRouter } from 'vue-router'
+import BasicInput from './BasicInput.vue'
+import { postJSON } from '../api-client/api-client'
 
 const username = ref('')
 const password = ref('')
+const router = useRouter()
 
-function onSubmit(e: Event) {
-  postJSON("https://back-web-dev-l9r6.onrender.com/api/token", {
+async function onSubmit(e: Event) {
+  try {
+    const response = await postJSON("https://back-web-dev-l9r6.onrender.com/api/token", {
       username: username.value,
       password: password.value
-  })
+    })
+
+    // Si on a un token → redirige vers gallery
+    if (response.token) {
+      router.push('/gallery')
+    } else {
+      console.error("Login failed, no token received")
+    }
+  } catch (err) {
+    console.error("Login error:", err)
+  }
 }
 </script>
 
 <template>
-  <form id="signin"
-  @submit.prevent="onSubmit($event)">
+  <form id="signin" @submit.prevent="onSubmit($event)">
     <fieldset>
       <legend>Please authenticate</legend>
       <BasicInput
@@ -31,7 +43,7 @@ function onSubmit(e: Event) {
         label="Password"
         v-model="password"
       />
-      <input class="btn" type="submit" value="Sign in">
+      <input class="btn" type="submit" value="Sign in" />
     </fieldset>
   </form>
 </template>

@@ -1,3 +1,13 @@
+import { createApp } from 'vue'
+import App from './App.vue'
+import { router } from './router'
+
+createApp(App).use(router).mount('#app')
+
+
+
+
+/*
 import { signUp } from "./signup.js"
 import { signIn } from "./signin.js"
 import SignUp from './components/SignUp.vue';
@@ -36,6 +46,8 @@ createApp(App)
   .use(router)
   .mount('#app')
 
+
+*/
 // const radioButtons = document.querySelectorAll('[name="formType"]')
 
 // function displayAppropriateForm (event) {
