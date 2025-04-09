@@ -14,7 +14,7 @@ export function signUp (event) {
     password,
   }
 
-  fetch('https://back-web-dev-l9r6.onrender.com/api/user', {
+  fetch('https://back-web-dev-l9r6.onrender.com/api/users', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
