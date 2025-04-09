@@ -24,6 +24,7 @@ async function onSubmit(e: Event) {
 
     if (data.token) {
       localStorage.setItem('token', data.token)
+      localStorage.setItem('username', username.value)
       router.push('/gallery')
     } else {
       console.error("Login failed, no token received")

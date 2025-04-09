@@ -10,7 +10,12 @@ const image = ref('')
 const price = ref(0)
 
 async function fetchArtworks() {
-  const res = await fetch('https://back-web-dev-l9r6.onrender.com/api/artworks')
+  const username = localStorage.getItem('username')
+  const res = await fetch('https://back-web-dev-l9r6.onrender.com/api/artworks', {
+    headers: {
+      'x-user': username // 👈 envoyer l'identité
+    }
+  })
   artworks.value = await res.json()
 }
 
