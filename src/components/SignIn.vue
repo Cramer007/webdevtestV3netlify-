@@ -14,6 +14,7 @@ async function onSubmit(e: Event) {
       username: username.value,
       password: password.value
     })
+    console.log("Response received from backend:", response) // 👈 Ajoute ceci
 
     // Si on a un token → redirige vers gallery
     if (response.token) {
